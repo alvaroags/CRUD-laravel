@@ -8,16 +8,27 @@
     <h1 class="text-center">Cadastrar</h1>
 
     <div class="col-8 m-auto">
+
+        @if(isset($errors) && count($errors) > 0)
+            <div class="text-center mt-4 p-3 alert alert-danger">                @foreach($errors->all() as $erro)
+                        {{$erro}}
+                        @if(!$loop->last)
+                            <hr>
+                        @endif
+                @endforeach
+            </div>
+        @endif
+
         <form name="formCad" id="formCad" method="post" action="{{url('tarefa')}}">
             @csrf
             <div class="input-group mb-3">
-                <input class="form-control" type="text" name="tarefa" id="tarefa" placeholder="Tarefa" required>
+                <input class="form-control" type="text" name="tarefa" id="tarefa" placeholder="Tarefa">
             </div>
             <div class="input-group mb-3">
-                <input class="form-control" type="text" name="descricao" id="descricao" placeholder="Descrição" required>
+                <input class="form-control" type="text" name="descricao" id="descricao" placeholder="Descrição">
             </div>
             <div class="input-group mb-3">
-                <select class="form-select" name="status" id="status" required>
+                <select class="form-select" name="status" id="status">
                     <option value="">Status</option>
                     <option value="Pendente">Pendente</option>
                     <option value="Em andamento">Em andamento</option>
@@ -25,7 +36,7 @@
                 </select>
             </div>
             <div class="input-group mb-3">
-                <select class="form-select" name="prioridade" id="prioridade" required>
+                <select class="form-select" name="prioridade" id="prioridade">
                     <option value="">Prioridade</option>
                     <option value="Baixa">Baixa</option>
                     <option value="Média">Média</option>

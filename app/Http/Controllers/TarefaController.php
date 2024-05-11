@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\ModelTarefa;
+use App\Http\Requests\TarefaRequest as Tarefa;
 
 class TarefaController extends Controller
 {
@@ -35,14 +35,15 @@ class TarefaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Tarefa $request)
     {
         $this->objTarefa->tarefa = $request->tarefa;
         $this->objTarefa->descricao = $request->descricao;
         $this->objTarefa->status = $request->status;
         $this->objTarefa->prioridade = $request->prioridade;
-        $this->objTarefa->save();
-        return redirect('tarefa');
+        if($this->objTarefa->save()){
+            return redirect('tarefa');
+        }
     }
 
     /**
@@ -65,7 +66,7 @@ class TarefaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Tarefa $request, string $id)
     {
         //
     }

@@ -10,4 +10,5 @@ class ModelTarefa extends Model
     use HasFactory;
 
     protected $table = 'tarefas';
+    protected $fillable = ['tarefa', 'descricao', 'status', 'prioridade'];
 }

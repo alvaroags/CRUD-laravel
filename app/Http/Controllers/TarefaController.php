@@ -21,7 +21,6 @@ class TarefaController extends Controller
     {
         $tarefas = $this->objTarefa->all();
         return view('tarefa', compact('tarefas'));
-        // return view('tarefa');
     }
 
     /**
@@ -42,7 +41,7 @@ class TarefaController extends Controller
         $this->objTarefa->status = $request->status;
         $this->objTarefa->prioridade = $request->prioridade;
         if($this->objTarefa->save()){
-            return redirect('tarefa');
+            return redirect('tarefa')->with('msg_success', 'Tarefa cadastrada com sucesso!');
         }
     }
 
@@ -60,7 +59,8 @@ class TarefaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tarefa = $this->objTarefa->find($id);
+        return view('edit', compact('tarefa'));
     }
 
     /**
@@ -68,7 +68,27 @@ class TarefaController extends Controller
      */
     public function update(Tarefa $request, string $id)
     {
-        //
+        $this->objTarefa->where(['id'=>$id])->update([
+            'tarefa'=>$request->tarefa,
+            'descricao'=>$request->descricao,
+            'status'=>$request->status,
+            'prioridade'=>$request->prioridade
+        ]);
+        return redirect('tarefa')->with('msg_update', 'Tarefa atualizada com sucesso!');
+    }
+
+    public function updateStatus(Tarefa $request, string $id)
+    {
+        $this->objTarefa->where(['id'=>$id])->update([
+            'status'=>$request->status
+        ]);
+    }
+
+    public function updatePrioridade(Tarefa $request, string $id)
+    {
+        $this->objTarefa->where(['id'=>$id])->update([
+            'prioridade'=>$request->prioridade
+        ]);
     }
 
     /**
@@ -76,6 +96,7 @@ class TarefaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $this->objTarefa->destroy($id);
+        return redirect('tarefa')->with('msg_error', 'Tarefa deletada com sucesso!');
     }
 }

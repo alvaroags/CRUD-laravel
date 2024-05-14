@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h1 class="text-center">Cadastrar</h1>
+    <h1 class="text-center m-4">Cadastrar</h1>
 
     <div class="col-8 m-auto">
 
@@ -19,7 +19,7 @@
             </div>
         @endif
 
-        <form name="formCad" id="formCad" method="post" action="{{url('tarefa')}}">
+        <form name="formCreate" id="formCreate" method="post" action="{{url('tarefa')}}">
             @csrf
             <div class="input-group mb-3">
                 <input class="form-control" type="text" name="tarefa" id="tarefa" placeholder="Tarefa">

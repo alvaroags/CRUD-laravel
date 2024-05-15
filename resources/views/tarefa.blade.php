@@ -99,7 +99,7 @@
 
     <div class="text-center m-auto">
         <a href="{{url('tarefa/create')}}">
-            <button class="btn btn-primary m-5">Cadastrar</button>
+            <button class="btn btn-primary m-3">Cadastrar</button>
         </a>  <!-- Botão para cadastrar uma nova tarefa -->
     </div>
 @endsection 

@@ -26,33 +26,6 @@
     }
 }) (window, document);
 
-// $(document).ready(function() {
-//     $('.js-delete').on('click', function(e) {
-//         e.preventDefault();
-
-//         let tarefa = $(this).closest('tr').data('tarefa');
-//         console.log(tarefa)
-
-//         if (confirm('Tem certeza de que deseja excluir esta tarefa?')) {
-//             $.ajax({
-//                 url: '/tarefa/' + tarefa.id,
-//                 type: 'DELETE',
-//                 data: {
-//                     id: tarefa.id,
-//                     _token: '{{ csrf_token() }}',
-//                 },
-//                 success: function(response) {
-//                     alert('Tarefa excluída com sucesso!');
-//                     location.reload();
-//                 },
-//                 error: function(response) {
-//                     alert('Erro ao excluir a tarefa.');
-//                 }
-//             });
-//         }
-//     });
-// });
-
 $(document).ready(function() {
     $('.prioridade').click(function(e) {
         e.preventDefault();

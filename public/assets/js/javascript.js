@@ -1,6 +1,7 @@
 (function(win, doc){
     'use strict';
 
+    // Função para confirmar exclusão de registro
     function confirmDel(event){
         event.preventDefault();
         let token = doc.getElementsByName("_token")[0].value;
@@ -18,6 +19,8 @@
             return false;
         }
     }
+
+    // Adiciona evento de clique para todos os elementos com classe 'js-del'
     if(doc.querySelector('.js-del')){
         let btn = doc.querySelectorAll('.js-del');
         for(let i=0; i < btn.length; i++){
@@ -26,6 +29,7 @@
     }
 }) (window, document);
 
+// Função para alterar a prioridade da tarefa
 $(document).ready(function() {
     $('.prioridade').click(function(e) {
         e.preventDefault();
@@ -35,6 +39,7 @@ $(document).ready(function() {
         let tarefa = $(this).closest('tr').data('tarefa'); // Pega o id da tarefa
         tarefa.prioridade = prioridade;
 
+        // Requisição AJAX para atualizar a prioridade
         $.ajax({
             url: 'tarefa/' + tarefa.id + '/prioridade',
             type: 'PUT',
@@ -56,6 +61,7 @@ $(document).ready(function() {
     });
 });
 
+// Função para alterar o status da tarefa
 $(document).ready(function() {
     $('.status').click(function(e) {
         e.preventDefault();
@@ -65,6 +71,7 @@ $(document).ready(function() {
         let tarefa = $(this).closest('tr').data('tarefa'); // Pega o id da tarefa
         tarefa.status = status;
 
+        // Requisição AJAX para atualizar o status
         $.ajax({
             url: 'tarefa/' + tarefa.id + '/status',
             type: 'PUT',

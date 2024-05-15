@@ -2,8 +2,7 @@
 
 Este projeto é uma aplicação web simples para gerenciar uma lista de tarefas. Ele permite que o usuário crie, edite, exclua e marque tarefas como concluídas. Além disso, possui um recurso de alternância entre os modos claro e escuro.
 
-![Exemplo](https://raw.githubusercontent.com/seu-usuario/seu-repositorio/master/caminho/para/a/imagem/exemplo.png "Exemplo de imagem")
-
+![Alt text](https://ibb.co/60bvL2Z "Texto alternativo")
 
 ## Tecnologias utilizadas
 
@@ -35,7 +34,6 @@ Este projeto é uma aplicação web simples para gerenciar uma lista de tarefas.
    - **`resources/views/`**: Diretório que contém os arquivos Blade para as views da aplicação.
      - **`resources/views/tarefa.blade.php`**: View que exibe a lista de tarefas.
      - **`resources/views/create.blade.php`**: View para a criação de novas tarefas.
-     - **`resources/views/edit.blade.php`**: View para a edição de tarefas existentes.
 
 4. **`routes/`**: Contém os arquivos de definição de rotas da aplicação.
    - **`routes/web.php`**: Arquivo de definição de rotas web, onde são definidas as rotas para as diferentes ações da aplicação.

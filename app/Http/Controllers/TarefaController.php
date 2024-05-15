@@ -14,25 +14,26 @@ class TarefaController extends Controller
     {
         $this->objTarefa = new ModelTarefa();
     }
+
     /**
-     * Display a listing of the resource.
+     * Exibe uma lista de recursos.
      */
     public function index()
     {
-        $tarefas = $this->objTarefa->all();
-        return view('tarefa', compact('tarefas'));
+        $tarefas = $this->objTarefa->all();  // Recupera todas as tarefas
+        return view('tarefa', compact('tarefas'));  // Retorna a vista 'tarefa' com os dados das tarefas
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Mostra o formulário para criar um novo recurso.
      */
     public function create()
     {
-        return view('create');
+        return view('create');  // Retorna a vista 'create'
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Armazena um recurso recém-criado no armazenamento.
      */
     public function store(Tarefa $request)
     {
@@ -40,31 +41,31 @@ class TarefaController extends Controller
         $this->objTarefa->descricao = $request->descricao;
         $this->objTarefa->status = $request->status;
         $this->objTarefa->prioridade = $request->prioridade;
-        if($this->objTarefa->save()){
-            return redirect('tarefa')->with('msg_success', 'Tarefa cadastrada com sucesso!');
+        if($this->objTarefa->save()){  // Salva a nova tarefa
+            return redirect('tarefa')->with('msg_success', 'Tarefa cadastrada com sucesso!');  // Redireciona com mensagem de sucesso
         }
     }
 
     /**
-     * Display the specified resource.
+     * Exibe o recurso especificado.
      */
     public function show(string $id)
     {
-        $tarefa = $this->objTarefa->find($id);
-        return view('visualizar', compact('tarefa'));
+        $tarefa = $this->objTarefa->find($id);  // Encontra a tarefa pelo ID
+        return view('visualizar', compact('tarefa'));  // Retorna a vista 'visualizar' com os dados da tarefa
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Mostra o formulário para editar o recurso especificado.
      */
     public function edit(string $id)
     {
-        $tarefa = $this->objTarefa->find($id);
-        return view('edit', compact('tarefa'));
+        $tarefa = $this->objTarefa->find($id);  // Encontra a tarefa pelo ID
+        return view('edit', compact('tarefa'));  // Retorna a vista 'edit' com os dados da tarefa
     }
 
     /**
-     * Update the specified resource in storage.
+     * Atualiza o recurso especificado no armazenamento.
      */
     public function update(Tarefa $request, string $id)
     {
@@ -74,7 +75,7 @@ class TarefaController extends Controller
             'status'=>$request->status,
             'prioridade'=>$request->prioridade
         ]);
-        return redirect('tarefa')->with('msg_update', 'Tarefa atualizada com sucesso!');
+        return redirect('tarefa')->with('msg_update', 'Tarefa atualizada com sucesso!');  // Redireciona com mensagem de atualização
     }
 
     public function updateStatus(Tarefa $request, string $id)
@@ -92,11 +93,11 @@ class TarefaController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove o recurso especificado do armazenamento.
      */
     public function destroy(string $id)
     {
-        $this->objTarefa->destroy($id);
-        return redirect('tarefa')->with('msg_error', 'Tarefa deletada com sucesso!');
+        $this->objTarefa->destroy($id);  // Deleta a tarefa pelo ID
+        return redirect('tarefa')->with('msg_error', 'Tarefa deletada com sucesso!');  // Redireciona com mensagem de exclusão
     }
 }

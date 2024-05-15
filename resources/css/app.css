@@ -1,0 +1,23 @@
+a {
+    text-decoration: none;
+}
+
+i{
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+}
+
+@media (max-width: 768px) {
+    table{
+        width: 100%;
+        overflow-x: auto;
+    }
+}
+
+.table-cell-middle {
+    vertical-align: middle !important;
+}
+
+.text-bg-color {
+    color: white;
+}

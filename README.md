@@ -2,7 +2,7 @@
 
 Este projeto é uma aplicação web simples para gerenciar uma lista de tarefas. Ele permite que o usuário crie, edite, exclua e marque tarefas como concluídas. Além disso, possui um recurso de alternância entre os modos claro e escuro.
 
-![Alt text](https://ibb.co/60bvL2Z "Texto alternativo")
+![Alt text](https://i.ibb.co/v4msRbB/todolist.png "Imagem da página inicial do projeto")
 
 ## Tecnologias utilizadas
 

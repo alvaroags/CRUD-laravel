@@ -1,66 +1,78 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Projeto To Do List
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este projeto é uma aplicação web simples para gerenciar uma lista de tarefas. Ele permite que o usuário crie, edite, exclua e marque tarefas como concluídas. Além disso, possui um recurso de alternância entre os modos claro e escuro.
 
-## About Laravel
+![Exemplo](https://raw.githubusercontent.com/seu-usuario/seu-repositorio/master/caminho/para/a/imagem/exemplo.png "Exemplo de imagem")
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tecnologias utilizadas
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Laravel**: Framework PHP para o desenvolvimento da aplicação back-end.
+- **Bootstrap**: Framework CSS para o desenvolvimento da interface do usuário.
+- **JavaScript**: Linguagem de programação para a interatividade do botão de alternância de tema.
 
-## Learning Laravel
+## Funcionalidades
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Listagem de tarefas**: exibe todas as tarefas cadastradas.
+- **Cadastro de tarefas**: permite ao usuário adicionar novas tarefas à lista.
+- **Edição de tarefas**: possibilita a alteração do nome, descrição, status e prioridade de uma tarefa.
+- **Exclusão de tarefas**: remove uma tarefa da lista.
+- **Alternância de tema**: permite ao usuário alterar entre os modos claro e escuro da aplicação.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Estrutura de Diretórios
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **`app/`**: Contém a lógica da aplicação, incluindo models, controllers, middleware, etc.
+   - **`app/Models/ModelTarefa.php`**: Modelo Eloquent para a entidade `tarefas`, responsável pela interação com a tabela `tarefas` no banco de dados.
+   - **`app/Http/Controllers/`**: Diretório que contém os controllers da aplicação.
+     - **`app/Http/Controllers/TarefaController.php`**: Controller responsável por gerenciar as ações relacionadas às tarefas, como listagem, criação, edição e exclusão.
+   - **`app/Http/Requests/TarefaRequest.php`**: Classe de requisição que define as regras de validação para as requisições relacionadas às tarefas.
 
-## Laravel Sponsors
+2. **`database/`**: Contém os arquivos relacionados ao banco de dados da aplicação.
+   - **`database/migrations/2024_05_15_create_tarefas_table.php`**: Migration responsável por criar a tabela `tarefas` no banco de dados.
+   - **`database/factories/TarefaFactory.php`**: Factory responsável por gerar dados de teste para a tabela `tarefas`.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. **`resources/`**: Contém os recursos da aplicação, como views, assets, etc.
+   - **`resources/views/`**: Diretório que contém os arquivos Blade para as views da aplicação.
+     - **`resources/views/tarefa.blade.php`**: View que exibe a lista de tarefas.
+     - **`resources/views/create.blade.php`**: View para a criação de novas tarefas.
+     - **`resources/views/edit.blade.php`**: View para a edição de tarefas existentes.
 
-### Premium Partners
+4. **`routes/`**: Contém os arquivos de definição de rotas da aplicação.
+   - **`routes/web.php`**: Arquivo de definição de rotas web, onde são definidas as rotas para as diferentes ações da aplicação.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Fluxo de Funcionamento
 
-## Contributing
+1. **Listagem de Tarefas**:
+   - A lista de tarefas é exibida na página inicial da aplicação (`/tarefa`).
+   - O controller `TarefaController` obtém todas as tarefas do banco de dados e passa para a view `tarefa.blade.php` para exibição.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. **Criação de Tarefas**:
+   - O usuário acessa a página de criação de tarefas (`/tarefa/create`).
+   - O controller `TarefaController` exibe o formulário de criação.
+   - O usuário preenche o formulário e envia os dados.
+   - O controller valida os dados, cria uma nova tarefa e a salva no banco de dados.
 
-## Code of Conduct
+3. **Edição de Tarefas**:
+   - O usuário acessa a página de edição de uma tarefa específica (`/tarefa/{id}/edit`).
+   - O controller `TarefaController` busca a tarefa com o ID correspondente e exibe o formulário de edição preenchido com os dados da tarefa.
+   - O usuário modifica os dados e envia o formulário.
+   - O controller valida os dados, atualiza a tarefa no banco de dados e redireciona para a lista de tarefas.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4. **Exclusão de Tarefas**:
+   - O usuário clica no botão de exclusão de uma tarefa na lista de tarefas.
+   - O controller `TarefaController` exclui a tarefa correspondente do banco de dados e redireciona para a lista de tarefas.
 
-## Security Vulnerabilities
+5. **Alternância de Tema**:
+   - O usuário clica no botão de alternância de tema.
+   - Um script JavaScript altera o atributo `data-bs-theme` do elemento `<html>` para alternar entre os temas claro e escuro.
+   - As regras de estilo CSS são aplicadas com base no tema selecionado, alterando o visual da aplicação.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Instalação
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. Clone o repositório: `git clone https://github.com/seu-usuario/projeto-todo-list.git`
+2. Instale as dependências do Composer: `composer install`
+3. Copie o arquivo de ambiente: `cp .env.example .env`
+4. Configure o arquivo `.env` com as informações do seu banco de dados
+5. Gere a chave de aplicação: `php artisan key:generate`
+6. Execute as migrações do banco de dados: `php artisan migrate`
+7. Inicie o servidor de desenvolvimento: `php artisan serve`

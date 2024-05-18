@@ -67,7 +67,7 @@ Este projeto é uma aplicação web simples para gerenciar uma lista de tarefas.
 
 ## Instalação
 
-1. Clone o repositório: `git clone https://github.com/alvaroags/projeto-todo-list.git`
+1. Clone o repositório: `git clone https://github.com/alvaroags/CRUD-laravel.git`
 2. Instale as dependências do Composer: `composer install`
 3. Copie o arquivo de ambiente: `cp .env.example .env`
 4. Configure o arquivo `.env` com as informações do seu banco de dados
